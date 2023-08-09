@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
+{% include 'dashboard/partials/head.html' %}
+
 <body>
-    dashboard
+    <nav>
+        logo
+        <button>menu lateral</button>
+    </nav>
+    <div class="container">
+        <div class="general-info">
+            informações gerais, classe = general-info
+            <div class="profile">
+                perfil, classe = profile
+            </div>
+            <div class="table">
+                tabela, classe = table
+            </div>
+        </div>
+        <div class="specific-info">
+            <div class="data">
+                dados, classe = data
+            </div>
+            <div class="graphic">
+                grafico, dados = graphic
+            </div>
+        </div>
+    </div>
 </body>
 </html>
