@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-{% include 'dashboard/partials/head.html' %}
-
-<body>
-    <nav>
-        <div class="navbar">
-            <div class="img-navbar">
-                classe=img-nav
-                {% comment %} <img src="" alt=""> {% endcomment %}
-            </div>
-            <button class="sidemenu-button-navbar"><i class="fa-solid fa-bars"></i></button>
-        </div>
-    </nav>
+{% extends 'global/base.html' %}
+{% block 'body-content' %}
     <div class="container">
         <div class="general-info">
             <div class="profile">
@@ -31,5 +18,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock 'body-content' %}
