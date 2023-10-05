@@ -39,84 +39,84 @@
                 <div class='form-topic'>
                     <label for="">Documentação: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='documentation' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='documentation' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='documentation' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='documentation' value='correct' onclick='show_documentation()'>Certo
+                        <input type="radio" id='incorrect' name='documentation' value='incorrect' class='option' onclick='show_documentation()'>Errado
+                        <input type="radio" id='non-aplicable' name='documentation' value='N/A' class='option' onclick='show_documentation()'>N/A
                     </div>
-                    <div class='reason'>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10"></textarea>
+                    <div>
+                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>
             
                 <div class='form-topic'>
                     <label for="">Lista de materiais: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='material-list' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='material-list' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='material-list' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='material-list' value='correct' onclick='show_material_list()'>Certo
+                        <input type="radio" id='incorrect' name='material-list' value='incorrect' class='option' onclick='show_material_list()'>Errado
+                        <input type="radio" id='non-aplicable' name='material-list' value='N/A' class='option' onclick='show_material_list()'>N/A
                     </div>
-                    <div class='reason'>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10"></textarea>
+                    <div>
+                        <textarea name="reason-material-list" id="reason-material-list" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>
             
                 <div class='form-topic'>
                     <label for="">Preços: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='price' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='price' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='prince' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='price' value='correct' onclick='show_price()'>Certo
+                        <input type="radio" id='incorrect' name='price' value='incorrect' class='option' onclick='show_price()'>Errado
+                        <input type="radio" id='non-aplicable' name='prince' value='N/A' class='option' onclick='show_price()'>N/A
                     </div>
-                    <div class='reason'>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10"></textarea>
+                    <div>
+                        <textarea name="reason-price" id="reason-price" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>
                 
                 <div class='form-topic'>
                     <label for="">Layout: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='layout' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='layout' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='layout' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='layout' value='correct' onclick='show_layout()'>Certo
+                        <input type="radio" id='incorrect' name='layout' value='incorrect' class='option' onclick='show_layout()'>Errado
+                        <input type="radio" id='non-aplicable' name='layout' value='N/A' class='option' onclick='show_layout()'>N/A
                     </div>
                     <div>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10" class='reason'></textarea>
+                        <textarea name="reason-layout" id="reason-layout" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>
             
                 <div class='form-topic'>
                     <label for="">Rede: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='network' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='network' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='network' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='network' value='correct' onclick='show_network()'>Certo
+                        <input type="radio" id='incorrect' name='network' value='incorrect' class='option' onclick='show_network()'>Errado
+                        <input type="radio" id='non-aplicable' name='network' value='N/A' class='option' onclick='show_network()'>N/A
                     </div>
                     <div>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10" class='reason'></textarea>
+                        <textarea name="reason-network" id="reason-network" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>            
             
                 <div class='form-topic'>
                     <label for="">Proposta técnica: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='tecnical-offer' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='tecnical-offer' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='tecnical-offer' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='tecnical-offer' value='correct' onclick='show_tecnical_offer()'>Certo
+                        <input type="radio" id='incorrect' name='tecnical-offer' value='incorrect' class='option' onclick='show_tecnical_offer()'>Errado
+                        <input type="radio" id='non-aplicable' name='tecnical-offer' value='N/A' class='option' onclick='show_tecnical_offer()'>N/A
                     </div>
                     <div>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10" class='reason'></textarea>
+                        <textarea name="reason-tecnical-offe" id="reason-tecnical-offer" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>
             
                 <div class='form-topic'>
                     <label for="">proposta comercial: </label>
                     <div class="form__group-option">
-                        <input type="radio" id='correct' name='comercial-offer' value='correct'>Certo
-                        <input type="radio" id='incorrect' name='comercial-offer' value='incorrect' class='option'>Errado
-                        <input type="radio" id='non-aplicable' name='comercial-offer' value='N/A' class='option'>N/A
+                        <input type="radio" id='correct' name='comercial-offer' value='correct' onclick='show_comercial_offer()'>Certo
+                        <input type="radio" id='incorrect' name='comercial-offer' value='incorrect' class='option' onclick='show_comercial_offer()'>Errado
+                        <input type="radio" id='non-aplicable' name='comercial-offer' value='N/A' class='option' onclick='show_comercial_offer()'>N/A
                     </div>
                     <div>
-                        <textarea name="reason-documentation" id="reason-documentation" cols="30" rows="10" class='reason'></textarea>
+                        <textarea name="reason-comercial-offer" id="reason-comercial-offer" cols="30" rows="10" class='reason' hidden></textarea>
                     </div>
                 </div>
             </div>
