@@ -9,21 +9,23 @@
             <thead>
                 <th>Numero do projeto</th>
                 <th>Nome do projeto</th>
-                <th>Valor</th>
-                <th>Prazo</th>
+                {% comment %} <th>Valor</th> {% endcomment %}
+                {% comment %} <th>Prazo</th> {% endcomment %}
                 <th>Responsável</th>
-                <th>Observações</th>
+                <th>Responsavel Zetta</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>106543</td>
-                    <td>Projeto 1</td>
-                    <td>120,000.00</td>
-                    <td>45 dias</td>
-                    <td>boi</td>
-                    <td>Sem observações</td>
-                </tr>
-                <tr>
+                {% for i in data %}
+                    <tr>
+                        <td>{{i.project_number}}</td>
+                        <td>{{i.project_name}}</td>
+                        <td>{{i.client_name}}</td>
+                        <td>{{i.evaluated}}</td>
+                        {% comment %} <td>{{}}</td>
+                        <td>{{}}</td> {% endcomment %}
+                    </tr>
+                {% endfor %}
+                {% comment %} <tr>
                     <td>103549</td>
                     <td>Projeto 2</td>
                     <td>20,000.00</td>
@@ -62,7 +64,7 @@
                     <td>45 dias</td>
                     <td>imenso</td>
                     <td>Sem observações</td>
-                </tr>
+                </tr> {% endcomment %}
             </tbody>
         </table>
     </div>
