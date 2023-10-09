@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from budget_evaluation_register.models import Budget
+
 
 # Create your views here.
 def dashboard(request):
@@ -7,4 +9,5 @@ def dashboard(request):
 
 
 def reports(request):
-    return render(request, 'dashboard/pages/reports.html')
+    data = Budget.objects.all()
+    return render(request, 'dashboard/pages/reports.html', {'data': data})
