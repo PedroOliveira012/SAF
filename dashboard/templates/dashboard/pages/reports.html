@@ -9,10 +9,9 @@
             <thead>
                 <th>Numero do projeto</th>
                 <th>Nome do projeto</th>
-                {% comment %} <th>Valor</th> {% endcomment %}
-                {% comment %} <th>Prazo</th> {% endcomment %}
                 <th>Responsável</th>
                 <th>Responsavel Zetta</th>
+                <th></th>
             </thead>
             <tbody>
                 {% for i in data %}
@@ -21,50 +20,10 @@
                         <td>{{i.project_name}}</td>
                         <td>{{i.client_name}}</td>
                         <td>{{i.evaluated}}</td>
-                        {% comment %} <td>{{}}</td>
-                        <td>{{}}</td> {% endcomment %}
+                        <td><a href="details/{{i.id}}"><button>link</button></a></td>
                     </tr>
                 {% endfor %}
-                {% comment %} <tr>
-                    <td>103549</td>
-                    <td>Projeto 2</td>
-                    <td>20,000.00</td>
-                    <td>45 dias</td>
-                    <td>parceria</td>
-                    <td>Sem observações</td>
-                </tr>
-                <tr>
-                    <td>106496</td>
-                    <td>Projeto 3</td>
-                    <td>170,000.00</td>
-                    <td>60 dias</td>
-                    <td>imenso</td>
-                    <td>Sem observações</td>
-                </tr>
-                <tr>
-                    <td>109498</td>
-                    <td>Projeto 4</td>
-                    <td>225,000.00</td>
-                    <td>90 dias</td>
-                    <td>boi</td>
-                    <td>Sem observações</td>
-                </tr>
-                <tr>
-                    <td>106465</td>
-                    <td>Projeto 5</td>
-                    <td>15,000.00</td>
-                    <td>45 dias</td>
-                    <td>parceria</td>
-                    <td>Sem observações</td>
-                </tr>
-                <tr>
-                    <td>106492</td>
-                    <td>Projeto 6</td>
-                    <td>120,000.00</td>
-                    <td>45 dias</td>
-                    <td>imenso</td>
-                    <td>Sem observações</td>
-                </tr> {% endcomment %}
+                
             </tbody>
         </table>
     </div>

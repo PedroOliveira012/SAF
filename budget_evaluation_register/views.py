@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Budget
 
@@ -6,6 +6,11 @@ from .models import Budget
 # Create your views here.
 def new_register(request):
     return render(request, 'budget_evaluation_register/pages/form.html')
+
+
+def details(request, id):
+    details = get_object_or_404(Budget, pk=id)
+    return render(request, 'budget_evaluation_register/pages/reports_details.html', {'details': details})
 
 
 def add_report(request):
