@@ -5,7 +5,7 @@
     {{details.project_name}}
     {{details.client_name}}
     {{details.evaluated}} {% endcomment %}
-    <div class="title">
+    <div class="main-title">
         <h1>Detalhes da avaliação do projeto {{details.project_number}} - {{details.project_name}}</h1>
     </div>
     <div class='container'>
@@ -20,7 +20,17 @@
                         </h2>
                         <div id="collapseDocumentation" class="accordion-collapse collapse" data-bs-parent="#accordionDocumentation">
                             <div class="accordion-body">
-                                
+                                <div class="form-check">
+                                    <div class='report-task'>    
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Corrigir documentação
+                                        </label>
+                                    </div>
+                                    <div class="mb-3 report-task-description">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_documentation}}</textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -36,7 +46,15 @@
                         </h2>
                         <div id="collapseMaterialList" class="accordion-collapse collapse" data-bs-parent="#accordionMaterialList">
                             <div class="accordion-body">
-                                
+                                <div class='report-task'>    
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Corrigir Lista de materiais
+                                    </label>
+                                </div>
+                                <div class="mb-3 report-task-description">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +70,15 @@
                         </h2>
                         <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#accordionPrice">
                             <div class="accordion-body">
-                                
+                                <div class='report-task'>    
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Corrigir Preços de fornecedores
+                                    </label>
+                                </div>
+                                <div class="mb-3 report-task-description">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_price}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -68,7 +94,15 @@
                         </h2>
                         <div id="collapseLayout" class="accordion-collapse collapse" data-bs-parent="#accordionLayout">
                             <div class="accordion-body">
-                                
+                                <div class='report-task'>    
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Corrigir Layout
+                                    </label>
+                                </div>
+                                <div class="mb-3 report-task-description">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_layout}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,7 +118,15 @@
                         </h2>
                         <div id="collapseNetwork" class="accordion-collapse collapse" data-bs-parent="#accordionNetwork">
                             <div class="accordion-body">
-                                
+                                <div class='report-task'>    
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Corrigir Esquema de rede
+                                    </label>
+                                </div>
+                                <div class="mb-3 report-task-description">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_network}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,7 +142,15 @@
                         </h2>
                         <div id="collapseTecnicalOffer" class="accordion-collapse collapse" data-bs-parent="#accordionTecnicalOffer">
                             <div class="accordion-body">
-                                
+                                <div class='report-task'>    
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Corrigir Proposta técnica
+                                    </label>
+                                </div>
+                                <div class="mb-3 report-task-description">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_tecnical_offer}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +166,15 @@
                         </h2>
                         <div id="collapseCommercialOffer" class="accordion-collapse collapse" data-bs-parent="#accordionCommercialOffer">
                             <div class="accordion-body">
-                                
+                                <div class='report-task'>    
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Corrigir Proposta comercial
+                                    </label>
+                                </div>
+                                <div class="mb-3 report-task-description">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
