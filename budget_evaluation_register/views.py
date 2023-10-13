@@ -10,7 +10,11 @@ def new_register(request):
 
 def details(request, id):
     details = get_object_or_404(Budget, pk=id)
-    return render(request, 'budget_evaluation_register/pages/reports_details.html', {'details': details})
+    return render(
+        request,
+        'budget_evaluation_register/pages/reports_details.html',
+        {'details': details}
+    )
 
 
 def add_report(request):
