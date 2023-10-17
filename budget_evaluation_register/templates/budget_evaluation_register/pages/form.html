@@ -7,7 +7,7 @@
         <form action="{% url "add-report" %}" method='post'>
             {% csrf_token %}
             <div class='employee'>
-                <div class="project-item">
+                <div class="form-item">
                     <label for="">Funcionario: </label>
                     <select class="form-select" data-bs-theme="dark" name="employee" id="employee">
                         <option value="" selected disabled hidden>Selecione um funcionario</option>
@@ -19,17 +19,17 @@
             </div>
         
             <div class='project'>
-                <div class="project-item">
+                <div class="form-item">
                     <label for="project_name" class="">Número do projeto: </label>
-                    <input type="input" class="form-control" data-bs-theme="dark" name="project_number" id='project_number' placeholder='Número do projeto' required />
+                    <input type="input" class="form-control" data-bs-theme="dark" name="project_number" id='project_number' required />
                 </div>
 
-                <div class="project-item">
+                <div class="form-item">
                     <label for="project_name" class="">Nome do projeto: </label>
                     <input type="input" class="form-control" data-bs-theme="dark" name="project_name" id='project_name' required />
                 </div>
 
-                <div class="project-item">
+                <div class="form-item">
                     <label for="client" class="">Responsável cliente: </label>
                     <input type="input" class="form-control" data-bs-theme="dark" name="client" id='client' required />
                 </div>
@@ -41,18 +41,18 @@
                     <label for="">Documentação: </label>
                     <div class="options">
                         <div class="form-option">
-                            <input type="radio" id='correct_documentation' name='documentation' value='correct' onclick='show_documentation()'>Certo
+                            <input type="radio" id='correct_documentation' name='documentation' value='correct' onclick='show_documentation()'>
+                            <label for="correct_documentation" class="form-label">Certo</label>
                         </div>
                         <div class="form-option">
-                            <input type="radio" id='incorrect_documentation' name='documentation' value='incorrect' class='option' onclick='show_documentation()'>Errado
+                            <input type="radio" id='incorrect_documentation' name='documentation' value='incorrect' class='option' onclick='show_documentation()'>
+                            <label for="incorrect_documentation" class="form-label">Errado</label>
                         </div>
                         <div class="form-option">
-                            <input type="radio" id='non-aplicable_documentation' name='documentation' value='N/A' class='option' onclick='show_documentation()'>N/A
+                            <input type="radio" id='non-aplicable_documentation' name='documentation' value='N/A' class='option' onclick='show_documentation()'>
+                            <label for="non-aplicable_documentation_documentation" class="form-label">N/A</label>
                         </div>
                     </div>
-                    {% comment %} <div>
-                        <textarea name="reason_documentation" id="reason_documentation" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_documentation" rows="3" hidden></textarea>
                     </div>
@@ -61,13 +61,19 @@
                 <div class='form-topic'>
                     <label for="">Lista de materiais: </label>
                     <div class="options">
-                        <input type="radio" id='correct_material_list' name='material_list' value='correct' onclick='show_material_list()'>Certo
-                        <input type="radio" id='incorrect_material_list' name='material_list' value='incorrect' class='option' onclick='show_material_list()'>Errado
-                        <input type="radio" id='non-aplicable_material_list' name='material_list' value='N/A' class='option' onclick='show_material_list()'>N/A
+                        <div class="form-option">
+                            <input type="radio" id='correct_material_list' name='material_list' value='correct' onclick='show_material_list()'>
+                            <label for="correct_material_list" class="form-label">Certo</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='incorrect_material_list' name='material_list' value='incorrect' class='option' onclick='show_material_list()'>
+                            <label for="incorrect_material_list" class="form-label">Errado</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='non-aplicable_material_list' name='material_list' value='N/A' class='option' onclick='show_material_list()'>
+                            <label for="non-aplicable_material_list" class="form-label">N/A</label>
+                        </div>
                     </div>
-                    {% comment %} <div>
-                        <textarea name="reason_material_list" id="reason_material_list" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_material_list" rows="3" hidden></textarea>
                     </div>
@@ -76,13 +82,19 @@
                 <div class='form-topic'>
                     <label for="">Preços: </label>
                     <div class="options">
-                        <input type="radio" id='correct_price' name='price' value='correct' onclick='show_price()'>Certo
-                        <input type="radio" id='incorrect_price' name='price' value='incorrect' class='option' onclick='show_price()'>Errado
-                        <input type="radio" id='non-aplicable_price' name='price' value='N/A' class='option' onclick='show_price()'>N/A
+                        <div class="form-option">
+                            <input type="radio" id='correct_price' name='price' value='correct' onclick='show_price()'>
+                            <label for="correct_correct_price" class="form-label">Certo</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='incorrect_price' name='price' value='incorrect' class='option' onclick='show_price()'>
+                            <label for="incorrect_price" class="form-label">Errado</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='non-aplicable_price' name='price' value='N/A' class='option' onclick='show_price()'>
+                            <label for="non-aplicable_price" class="form-label">N/A</label>
+                        </div>
                     </div>
-                    {% comment %} <div>
-                        <textarea name="reason_price" id="reason_price" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_price" rows="3" hidden></textarea>
                     </div>
@@ -91,13 +103,19 @@
                 <div class='form-topic'>
                     <label for="">Layout: </label>
                     <div class="options">
-                        <input type="radio" id='correct_layout' name='layout' value='correct' onclick='show_layout()'>Certo
-                        <input type="radio" id='incorrect_layout' name='layout' value='incorrect' class='option' onclick='show_layout()'>Errado
-                        <input type="radio" id='non-aplicable_layout' name='layout' value='N/A' class='option' onclick='show_layout()'>N/A
+                        <div class="form-option">
+                            <input type="radio" id='correct_layout' name='layout' value='correct' onclick='show_layout()'>
+                            <label for="correct_layout" class="form-label">Certo</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='incorrect_layout' name='layout' value='incorrect' class='option' onclick='show_layout()'>
+                            <label for="incorrect_layout" class="form-label">Errado</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='non-aplicable_layout' name='layout' value='N/A' class='option' onclick='show_layout()'>
+                            <label for="non-aplicable_layout" class="form-label">N/A</label>
+                        </div>
                     </div>
-                    {% comment %} <div>
-                        <textarea name="reason_layout" id="reason_layout" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_layout" rows="3" hidden></textarea>
                     </div>
@@ -106,13 +124,19 @@
                 <div class='form-topic'>
                     <label for="">Rede: </label>
                     <div class="options">
-                        <input type="radio" id='correct_network' name='network' value='correct' onclick='show_network()'>Certo
-                        <input type="radio" id='incorrect_network' name='network' value='incorrect' class='option' onclick='show_network()'>Errado
-                        <input type="radio" id='non-aplicable_network' name='network' value='N/A' class='option' onclick='show_network()'>N/A
+                        <div class="form-option">
+                            <input type="radio" id='correct_network' name='network' value='correct' onclick='show_network()'>
+                            <label for="correct_network" class="form-label">Certo</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='incorrect_network' name='network' value='incorrect' class='option' onclick='show_network()'>
+                            <label for="incorrect_network" class="form-label">Errado</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='non-aplicable_network' name='network' value='N/A' class='option' onclick='show_network()'>
+                            <label for="non-aplicable_network'" class="form-label">N/A</label>
+                        </div>
                     </div>
-                    {% comment %} <div>
-                        <textarea name="reason_network" id="reason_network" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_network" rows="3" hidden></textarea>
                     </div>
@@ -121,28 +145,40 @@
                 <div class='form-topic'>
                     <label for="">Proposta técnica: </label>
                     <div class="options">
-                        <input type="radio" id='correct_tecnical_offer' name='tecnical_offer' value='correct' onclick='show_tecnical_offer()'>Certo
-                        <input type="radio" id='incorrect_tecnical_offer' name='tecnical_offer' value='incorrect' class='option' onclick='show_tecnical_offer()'>Errado
-                        <input type="radio" id='non-aplicable_tecnical_offer' name='tecnical_offer' value='N/A' class='option' onclick='show_tecnical_offer()'>N/A
-                    </div>
-                    {% comment %} <div>
-                        <textarea name="reason_tecnical_offer" id="reason_tecnical_offer" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
+                        <div class="form-option">
+                            <input type="radio" id='correct_tecnical_offer' name='tecnical_offer' value='correct' onclick='show_tecnical_offer()'>
+                            <label for="correct_tecnical_offer" class="form-label">Certo</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='incorrect_tecnical_offer' name='tecnical_offer' value='incorrect' class='option' onclick='show_tecnical_offer()'>
+                            <label for="incorrect_tecnical_offer" class="form-label">Errado</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='non-aplicable_tecnical_offer' name='tecnical_offer' value='N/A' class='option' onclick='show_tecnical_offer()'>
+                            <label for="non-aplicable_tecnical_offer" class="form-label">N/A</label>
+                        </div>
+                     </div>
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_tecnical_offer" rows="3" hidden></textarea>
                     </div>
                 </div>
             
                 <div class='form-topic'>
-                    <label for="">proposta comercial: </label>
+                    <label for="">Proposta comercial: </label>
                     <div class="options">
-                        <input type="radio" id='correct_commercial_offer' name='commercial_offer' value='correct' onclick='show_commercial_offer()'>Certo
-                        <input type="radio" id='incorrect_commercial_offer' name='commercial_offer' value='incorrect' class='option' onclick='show_commercial_offer()'>Errado
-                        <input type="radio" id='non-aplicable_commercial_offer' name='commercial_offer' value='N/A' class='option' onclick='show_commercial_offer()'>N/A
+                        <div class="form-option">
+                            <input type="radio" id='correct_commercial_offer' name='commercial_offer' value='correct' onclick='show_commercial_offer()'>
+                            <label for="correct_commercial_offer" class="form-label">Certo</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='incorrect_commercial_offer' name='commercial_offer' value='incorrect' class='option' onclick='show_commercial_offer()'>
+                            <label for="incorrect_commercial_offer" class="form-label">Errado</label>
+                        </div>
+                        <div class="form-option">
+                            <input type="radio" id='non-aplicable_commercial_offer' name='commercial_offer' value='N/A' class='option' onclick='show_commercial_offer()'>
+                            <label for="non-aplicable_commercial_offer" class="form-label">N/A</label>
+                        </div>
                     </div>
-                    {% comment %} <div>
-                        <textarea name="reason_commercial_offer" id="reason_commercial_offer" cols="30" rows="10" class='reason' hidden></textarea>
-                    </div> {% endcomment %}
                     <div class="mb-3">
                         <textarea class="form-control reason" data-bs-theme="dark" id="reason_commercial_offer" rows="3" hidden></textarea>
                     </div>
