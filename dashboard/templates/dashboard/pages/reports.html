@@ -7,23 +7,40 @@
     <div class="reports-table">
         <table>
             <thead>
-                <th>Numero do projeto</th>
-                <th>Nome do projeto</th>
-                <th>Responsável</th>
-                <th>Responsavel Zetta</th>
-                <th></th>
+                <th class="header-project-number">Numero do projeto</th>
+                <th class="header-project-name">Nome do projeto</th>
+                <th class="header-client">Responsável</th>
+                <th class="header-responsable">Responsavel Zetta</th>
+                <th class="button-cell"></th>
             </thead>
             <tbody>
                 {% for i in data %}
                     <tr>
-                        <td>{{i.project_number}}</td>
-                        <td>{{i.project_name}}</td>
-                        <td>{{i.client_name}}</td>
-                        <td>{{i.evaluated}}</td>
-                        <td><a href="details/{{i.id}}"><button>link</button></a></td>
+                        <td class="table-data">{{i.project_number}}</td>
+                        <td class="table-data">{{i.project_name}}</td>
+                        <td class="table-data">{{i.client_name}}</td>
+                        <td class="table-data">{{i.evaluated}}</td>
+                        <td>
+                            <div class="row mx-auto">
+                                <div class="col-md-auto">
+                                    <a href="details/{{i.id}}">
+                                        <button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button>
+                                    </a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <a href="finish/{{i.id}}">
+                                        <button class="btn btn-outline-success"><i class="fa-solid fa-check"></i></button>
+                                    </a>
+                                </div>
+                                <div class="col-md-auto">
+                                    <a href="delete/{{i.id}}">
+                                        <button class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 {% endfor %}
-                
             </tbody>
         </table>
     </div>

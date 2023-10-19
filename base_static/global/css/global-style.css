@@ -27,7 +27,7 @@ a{
 table{
     background: #212529;
     /* border: 2px solid #00acc0; */
-    width: 90%;
+    width: 70%;
     margin: 0px auto;
     border-collapse: collapse;
 }
@@ -50,3 +50,40 @@ tr:hover{
     margin: auto  0px auto 5%;
     font-size: 35px;
 }
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.img-navbar{
+    margin: auto 0px;
+    height: 100px;
+}
+
+.sidemenu-button-navbar{
+    border: 2px solid #212529;
+    border-radius: 5px;
+    background: #212529;
+    color: #ffffff;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out .25s;
+}
+
+.sidemenu-button-navbar:hover{
+    border: 2px solid #00acc0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: ease-in-out .25s;
+}
+
