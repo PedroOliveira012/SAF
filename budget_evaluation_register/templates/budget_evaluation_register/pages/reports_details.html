@@ -1,34 +1,29 @@
 {% extends "global/base.html" %} 
 {% block 'body-content' %}
-    {% comment %} {{details.id}}
-    {{details.project_number}}
-    {{details.project_name}}
-    {{details.client_name}}
-    {{details.evaluated}} {% endcomment %}
     <div class="main-title">
         <h1>Detalhes da avaliação do projeto {{details.project_number}} - {{details.project_name}}</h1>
     </div>
     <div class='container'>
         <div class="report-list">
             <div class='report-item'>
-                <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionDocumentation">
+                <div class="accordion border-none accordion-flush" data-bs-theme='dark' id="accordionDocumentation">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation">
+                        <h2 class="accordion-header border-bottom border-success">
+                            <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation" disabled>
                                 Documentação
                             </button>
                         </h2>
-                        <div id="collapseDocumentation" class="accordion-collapse collapse" data-bs-parent="#accordionDocumentation">
+                        <div id="collapseDocumentation" class="accordion-collapse collapse text-success-emphasis" data-bs-parent="#accordionDocumentation">
                             <div class="accordion-body">
                                 <div class="form-check">
                                     <div class='report-task'>    
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked disabled>
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Corrigir documentação
                                         </label>
                                     </div>
                                     <div class="mb-3 report-task-description">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_documentation}}</textarea>
+                                        <textarea class="form-control success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none border-none" id="exampleFormControlTextarea1s" rows="3" readonly >{{details.reason_documentation}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -39,21 +34,21 @@
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionMaterialList">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
+                        <h2 class="accordion-header border-bottom border-warning">
+                            <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
                                 Lista de materiais
                             </button>
                         </h2>
                         <div id="collapseMaterialList" class="accordion-collapse collapse" data-bs-parent="#accordionMaterialList">
-                            <div class="accordion-body">
+                            <div class="accordion-body border border-top-0 border-warning">
                                 <div class='report-task'>    
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <label class="form-check-label text-warning" for="flexCheckDefault">
                                         Corrigir Lista de materiais
                                     </label>
                                 </div>
                                 <div class="mb-3 report-task-description">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_material_list}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -63,21 +58,21 @@
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionPrice">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                        <h2 class="accordion-header border-bottom border-danger">
+                            <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
                                 Preços
                             </button>
                         </h2>
                         <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#accordionPrice">
-                            <div class="accordion-body">
+                            <div class="accordion-body border border-top-0 border-danger">
                                 <div class='report-task'>    
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <label class="form-check-label text-danger" for="flexCheckDefault">
                                         Corrigir Preços de fornecedores
                                     </label>
                                 </div>
                                 <div class="mb-3 report-task-description">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_price}}</textarea>
+                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_price}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +83,7 @@
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionLayout">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
+                            <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout" disabled>
                                 Layout
                             </button>
                         </h2>
