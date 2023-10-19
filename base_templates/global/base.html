@@ -5,6 +5,9 @@
 </head>
 <body>
     {% include './navbar.html' %}
-    {% block 'body-content' %}{% endblock 'body-content' %}
+    {% block 'title-and-button' %}{% endblock 'title-and-button' %}
+    <div>
+        {% block 'body-content' %}{% endblock 'body-content' %}
+    </div>
 </body>
 </html>
