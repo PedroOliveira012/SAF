@@ -1,4 +1,6 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 
 from .models import Budget
 
@@ -40,7 +42,4 @@ def add_report(request):
     new_report.reason_commercial_offer = request.POST.get(
         'reason_commercial_offer')
     new_report.save()
-    data = {
-        'data': Budget.objects.all()
-    }
-    return render(request, 'dashboard/pages/reports.html', data)
+    return HttpResponseRedirect(reverse('reports'))
