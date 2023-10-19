@@ -1,9 +1,16 @@
 {% extends 'global/base.html' %}
-{% block 'body-content' %}
+{% block 'title-and-button' %}
     <div class="title-and-button">
         <h1 class="page-name">Relatórios de projeto</h1>
-        <a href="{% url "new-register" %}"><button type="button" class="add-report"><i class="fa-solid fa-plus"></i>Adicionar</button></a>
+        <a href="{% url "new-register" %}">
+            <button type="button" class="btn btn-outline-primary">
+                <i class="fa-solid fa-plus"></i>
+                <span>Adicionar</span>
+            </button>
+        </a>
     </div>
+{% endblock 'title-and-button' %}
+{% block 'body-content' %}
     <div class="reports-table">
         <table>
             <thead>
