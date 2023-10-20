@@ -43,3 +43,13 @@ def add_report(request):
         'reason_commercial_offer')
     new_report.save()
     return HttpResponseRedirect(reverse('reports'))
+
+
+def delete(request, id):
+    report = Budget.objects.get(id=id)
+    report.delete()
+    return HttpResponseRedirect(reverse('reports'))
+
+
+def finish(request, id):
+    ...
