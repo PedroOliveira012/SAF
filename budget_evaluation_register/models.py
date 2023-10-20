@@ -26,3 +26,4 @@ class Budget(models.Model):
     reason_commercial_offer = models.CharField(
         max_length=255, null=True, default='N/A')
     comment = models.CharField(max_length=255, null=True, default='N/A')
+    finished = models.BooleanField(null=False, default=False)
