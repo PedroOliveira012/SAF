@@ -52,4 +52,7 @@ def delete(request, id):
 
 
 def finish(request, id):
-    ...
+    report = Budget.objects.get(id=id)
+    report.finished = True
+    report.save()
+    return HttpResponseRedirect(reverse('reports'))
