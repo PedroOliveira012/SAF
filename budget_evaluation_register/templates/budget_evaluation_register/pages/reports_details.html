@@ -8,170 +8,282 @@
             <div class='report-item'>
                 <div class="accordion border-none accordion-flush" data-bs-theme='dark' id="accordionDocumentation">
                     <div class="accordion-item">
-                        <h2 class="accordion-header border-bottom border-success">
-                            <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation" disabled>
-                                Documentação
-                            </button>
-                        </h2>
-                        <div id="collapseDocumentation" class="accordion-collapse collapse text-success-emphasis" data-bs-parent="#accordionDocumentation">
-                            <div class="accordion-body">
-                                <div class="form-check">
-                                    <div class='report-task'>    
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked disabled>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Corrigir documentação
-                                        </label>
-                                    </div>
-                                    <div class="mb-3 report-task-description">
-                                        <textarea class="form-control success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none border-none" id="exampleFormControlTextarea1s" rows="3" readonly >{{details.reason_documentation}}</textarea>
+                        {% if details.reason_documentation == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
+                                    Documentação
+                                </button>
+                            </h2>
+                            
+                        {% elif details.reason_documentation == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation" disabled>
+                                    Documentação
+                                </button>
+                            </h2>
+                            
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation">
+                                    Documentação
+                                </button>
+                            </h2>
+                            <div id="collapseDocumentation" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionDocumentation">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir documentação
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_documentation}}</textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionMaterialList">
                     <div class="accordion-item">
-                        <h2 class="accordion-header border-bottom border-warning">
-                            <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
-                                Lista de materiais
-                            </button>
-                        </h2>
-                        <div id="collapseMaterialList" class="accordion-collapse collapse" data-bs-parent="#accordionMaterialList">
-                            <div class="accordion-body border border-top-0 border-warning">
-                                <div class='report-task'>    
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label text-warning" for="flexCheckDefault">
-                                        Corrigir Lista de materiais
-                                    </label>
-                                </div>
-                                <div class="mb-3 report-task-description">
-                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                        {% if details.reason_material_list == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
+                                    Lista de materiais
+                                </button>
+                            </h2>
+                        {% elif details.reason_material_list == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
+                                    Lista de materiais
+                                </button>
+                            </h2>
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
+                                    Lista de materiais
+                                </button>
+                            </h2>
+                            <div id="collapseMaterialList" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionMaterialList">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir Lista de materiais
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionPrice">
                     <div class="accordion-item">
-                        <h2 class="accordion-header border-bottom border-danger">
-                            <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
-                                Preços
-                            </button>
-                        </h2>
-                        <div id="collapsePrice" class="accordion-collapse collapse" data-bs-parent="#accordionPrice">
-                            <div class="accordion-body border border-top-0 border-danger">
-                                <div class='report-task'>    
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label text-danger" for="flexCheckDefault">
-                                        Corrigir Preços de fornecedores
-                                    </label>
-                                </div>
-                                <div class="mb-3 report-task-description">
-                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_price}}</textarea>
+                        {% if details.reason_price == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                                    Preços
+                                </button>
+                            </h2>
+                        {% elif details.reason_price == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                                    Preços
+                                </button>
+                            </h2>
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
+                                    Preços
+                                </button>
+                            </h2>
+                            <div id="collapsePrice" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionPrice">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir Preços
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionLayout">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout" disabled>
-                                Layout
-                            </button>
-                        </h2>
-                        <div id="collapseLayout" class="accordion-collapse collapse" data-bs-parent="#accordionLayout">
-                            <div class="accordion-body">
-                                <div class='report-task'>    
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Corrigir Layout
-                                    </label>
-                                </div>
-                                <div class="mb-3 report-task-description">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_layout}}</textarea>
+                        {% if details.reason_price == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
+                                    Layout
+                                </button>
+                            </h2>
+                        {% elif details.reason_price == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
+                                    Layout
+                                </button>
+                            </h2>
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
+                                    Layout
+                                </button>
+                            </h2>
+                            <div id="collapseLayout" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionLayout">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir Layout
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_layout}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionNetwork">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
-                                Rede
-                            </button>
-                        </h2>
-                        <div id="collapseNetwork" class="accordion-collapse collapse" data-bs-parent="#accordionNetwork">
-                            <div class="accordion-body">
-                                <div class='report-task'>    
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Corrigir Esquema de rede
-                                    </label>
-                                </div>
-                                <div class="mb-3 report-task-description">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_network}}</textarea>
+                        {% if details.reason_network == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
+                                    Rede
+                                </button>
+                            </h2>
+                        {% elif details.reason_network == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
+                                    Rede
+                                </button>
+                            </h2>
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
+                                    Rede
+                                </button>
+                            </h2>
+                            <div id="collapseNetwork" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionNetwork">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir Esquema de rede
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_network}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionTecnicalOffer">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
-                                Proposta técnica
-                            </button>
-                        </h2>
-                        <div id="collapseTecnicalOffer" class="accordion-collapse collapse" data-bs-parent="#accordionTecnicalOffer">
-                            <div class="accordion-body">
-                                <div class='report-task'>    
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Corrigir Proposta técnica
-                                    </label>
-                                </div>
-                                <div class="mb-3 report-task-description">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_tecnical_offer}}</textarea>
+                        {% if details.reason_tecnical_offer == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
+                                    Proposta técnica
+                                </button>
+                            </h2>
+                        {% elif details.reason_tecnical_offer == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
+                                    Proposta técnica
+                                </button>
+                            </h2>
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
+                                    Proposta técnica
+                                </button>
+                            </h2>
+                            <div id="collapseTecnicalOffer" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionTecnicalOffer">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir Proposta técnica
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_tecnical_offer}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionCommercialOffer">
                     <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
-                                Proposta comercial
-                            </button>
-                        </h2>
-                        <div id="collapseCommercialOffer" class="accordion-collapse collapse" data-bs-parent="#accordionCommercialOffer">
-                            <div class="accordion-body">
-                                <div class='report-task'>    
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Corrigir Proposta comercial
-                                    </label>
-                                </div>
-                                <div class="mb-3 report-task-description">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
+                        {% if details.reason_commercial_offer == '' %}
+                            <h2 class="accordion-header border-bottom border-success">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
+                                    Proposta comercial
+                                </button>
+                            </h2>
+                        {% elif details.reason_commercial_offer == 'N/A' %}
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
+                                    Proposta comercial
+                                </button>
+                            </h2>
+                        {% else %}
+                            <h2 class="accordion-header border-bottom border-danger">
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
+                                    Proposta comercial
+                                </button>
+                            </h2>
+                            <div id="collapseCommercialOffer" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionCommercialOffer">
+                                <div class="accordion-body">
+                                    <div class="form-check">
+                                        <div class='report-task'>    
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Corrigir Proposta comercial
+                                            </label>
+                                        </div>
+                                        <div class="mb-3 report-task-description">
+                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
