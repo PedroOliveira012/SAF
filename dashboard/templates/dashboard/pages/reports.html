@@ -36,21 +36,64 @@
                                         </a>
                                     </div>
                                     <div class="col-md-auto">
-                                        <a href="finish/{{i.id}}">
-                                            <button class="btn btn-outline-success"><i class="fa-solid fa-check"></i></button>
-                                        </a>
+                                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}">
+                                            <i class="fa-solid fa-check"></i>
+                                        </button>
                                     </div>
                                     <div class="col-md-auto">
-                                        <a href="delete/{{i.id}}">
-                                            <button class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></button>
-                                        </a>
+                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     {% endif %}
+                    <div class="modal fade" id="staticBackdropModalDelete-{{i.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Deletar relatório</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">Deseja realmente excluir esse relatório?</div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                        <span>Cancelar</span>
+                                    </button>
+                                    <a href="delete/{{i.id}}">
+                                        <button type="submit" class="btn btn-danger">
+                                            <span>Excluir</span>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="staticBackdropModalFinish-{{i.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Concluir relatório</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">Deseja realmente concluir esse relatório?</div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                        <span>Cancelar</span>
+                                    </button>
+                                    <a href="finish/{{i.id}}">
+                                        <button type="submit" class="btn btn-success">
+                                            <span>Concluir</span>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    
 {% endblock 'body-content' %}
