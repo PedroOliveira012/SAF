@@ -51,7 +51,7 @@ tr:hover{
     font-size: 35px;
 }
 
-
+/* 
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -62,12 +62,12 @@ tr:hover{
 .img-navbar{
     margin: auto 0px;
     height: 100px;
-}
+} */
 
 .sidemenu-button-navbar{
-    border: 2px solid #212529;
+    border: 2px solid #2b3035;
     border-radius: 5px;
-    background: #212529;
+    background: #2b3035;
     color: #ffffff;
     font-size: 45px;
     display: flex;
