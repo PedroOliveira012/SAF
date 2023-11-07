@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     # apps criados
     'dashboard',
     'budget_evaluation_register',
-    'auth',
+    'user_authentication'
 ]
 
 MIDDLEWARE = [
