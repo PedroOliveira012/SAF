@@ -1,5 +1,9 @@
-{% extends "global/base.html" %} 
-{% include './navbar.html' %}
+{% extends "global/base.html" %}
+
+{% block 'navbar' %}
+    {% include 'global/navbar.html' %}
+{% endblock 'navbar' %}
+
 {% block 'body-content' %}
     <div class="main-title">
         <h1>Detalhes da avaliação do projeto {{details.project_number}} - {{details.project_name}}</h1>

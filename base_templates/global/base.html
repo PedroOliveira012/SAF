@@ -4,6 +4,7 @@
     {% include './head.html' %}
 </head>
 <body>
+    {% block 'navbar' %}{% endblock 'navbar' %}
     {% block 'title-and-button' %}{% endblock 'title-and-button' %}
     <div>
         {% block 'body-content' %}{% endblock 'body-content' %}

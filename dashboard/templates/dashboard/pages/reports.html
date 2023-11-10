@@ -1,5 +1,9 @@
 {% extends 'global/base.html' %}
-{% include './navbar.html' %}
+
+{% block 'navbar' %}
+    {% include 'global/navbar.html' %}
+{% endblock 'navbar' %}
+
 {% block 'title-and-button' %}
     <div class="title-and-button">
         <div class="title">
