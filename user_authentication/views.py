@@ -1,8 +1,10 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django
+from django.contrib.auth import logout as logout_django
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 
 
 def login(request):
@@ -16,9 +18,9 @@ def login(request):
 
         if user:
             login_django(request, user)
-            return HttpResponse('autenticado')
+            return redirect('reports')
         else:
-            return HttpResponse(User.objects.filter(username=username).first())
+            return redirect(reverse('login'))
 
 
 def register(request):
@@ -38,4 +40,9 @@ def register(request):
             username=username, email=email, password=password)
         user.save()
 
-        return HttpResponse('Usuario cadastrado com sucesso')
+        return redirect('login')
+
+
+def logout(request):
+    logout_django(request)
+    return redirect(reverse('login'))
