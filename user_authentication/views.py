@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
+from user_authentication.models import UserProfile
+
 
 def login(request):
     if request.method == "GET":
@@ -28,17 +30,20 @@ def register(request):
         return render(request, 'register.html')
     else:
         username = request.POST.get('username')
+        job = request.POST.get('job')
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        user = User.objects.filter(email=email).first()
+        user_exists = User.objects.filter(email=email).first()
 
-        if user:
-            return HttpResponse('Já existe um usuário com este email')
+        if user_exists:
+            return HttpResponse('Já existe um usuário com este username')
 
         user = User.objects.create_user(
             username=username, email=email, password=password)
         user.save()
+        user_profile = UserProfile.objects.create(
+            user=user, job=job)
 
         return redirect('login')
 
