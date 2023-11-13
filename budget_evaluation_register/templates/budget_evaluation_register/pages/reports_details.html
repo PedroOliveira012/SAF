@@ -15,7 +15,7 @@
                     <div class="accordion-item">
                         {% if details.reason_documentation == '' %}
                             <h2 class="accordion-header border-bottom border-success">
-                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
+                                <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation">
                                     Documentação
                                 </button>
                             </h2>
@@ -75,17 +75,33 @@
                             </h2>
                             <div id="collapseMaterialList" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionMaterialList">
                                 <div class="accordion-body">
-                                    <div class="form-check">
-                                        <div class='report-task'>    
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Corrigir Lista de materiais
-                                            </label>
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action=""></form>
+                                        <div class="form-check">
+                                            <div class='report-task'>    
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    chefe
+                                                </label>
+                                            </div>
+                                            <div class="mb-3 report-task-description">
+                                                <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                            </div>
                                         </div>
-                                        <div class="mb-3 report-task-description">
-                                            <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                    {% else %}
+                                        <form action=""></form>
+                                        <div class="form-check">
+                                            <div class='report-task'>    
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    funcionario
+                                                </label>
+                                            </div>
+                                            <div class="mb-3 report-task-description">
+                                                <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                            </div>
                                         </div>
-                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         {% endif %}
