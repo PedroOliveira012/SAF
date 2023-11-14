@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
+from user_authentication.models import UserProfile
+
 from .models import Budget
 
 
@@ -13,11 +15,12 @@ def new_register(request):
 
 def details(request, id):
     if request.user.is_authenticated:
+        user_profile = UserProfile.objects.get(user=request.user)
         details = get_object_or_404(Budget, pk=id)
         return render(
             request,
             'budget_evaluation_register/pages/reports_details.html',
-            {'details': details}
+            {'details': details, 'user': user_profile}
         )
 
 
@@ -63,3 +66,129 @@ def finish(request, id):
         report.finished = True
         report.save()
         return HttpResponseRedirect(reverse('reports'))
+
+
+def analyzed_documentation(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.documentation = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def analyzed_material_list(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.material_list = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def analyzed_price(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.price = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def analyzed_layout(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.layout = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def analyzed_network(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.network = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def analyzed_tecnical_offer(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.tecnical_offer = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def analyzed_commercial_offer(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.commercial_offer = 'correct'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_documentation(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.documentation = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_material_list(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.material_list = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_price(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.price = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_layout(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.layout = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_network(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.network = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_tecnical_offer(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.tecnical_offer = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
+
+
+def to_analyze_commercial_offer(request, id):
+    if request.user.is_authenticated:
+        report = Budget.objects.get(id=id)
+        report.commercial_offer = 'analyzing'
+        report.save()
+        # url = 'reports/details/' + str(report.id)
+        return HttpResponseRedirect(reverse('details', kwargs={'id': report.id}))
