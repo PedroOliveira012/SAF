@@ -22,6 +22,6 @@ def reports(request):
             user = request.user.username
             data = Budget.objects.filter(evaluated=user)
 
-        return render(request, 'dashboard/pages/reports.html', {'data': data})
+        return render(request, 'dashboard/pages/reports.html', {'data': data, 'user': user_profile})
     else:
         return redirect('login')
