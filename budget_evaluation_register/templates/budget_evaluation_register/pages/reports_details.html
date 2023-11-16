@@ -29,18 +29,48 @@
                         
                         {% elif details.documentation == 'analyzing' %}
                             <h2 class="border-bottom border-warning">
-                                <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation" disabled>
+                                <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation">
                                     Documentação
                                 </button>
-                            </h2>    
-                            
+                            </h2>
+                            <div id="collapseDocumentation" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionDocumentation">
+                                <div class="accordion-body">
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action="analyzed/documentation/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigido
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_documentation}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="to-analyze/documentation/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigir Documentação
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_documentation}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            <div>    
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation" disabled>
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocumentation" aria-expanded="false" aria-controls="collapseDocumentation">
                                     Documentação
                                 </button>
                             </h2>
@@ -56,10 +86,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.documentation}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_documentation}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/documentation/{{details.id}}">
@@ -71,10 +101,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.documentation}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_documentation}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
@@ -103,15 +133,45 @@
                                 <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
                                     Lista de materiais
                                 </button>
-                            </h2>    
-                            
+                            </h2>
+                            <div id="collapseMaterialList" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionMaterialList">
+                                <div class="accordion-body">
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action="analyzed/material-list/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigido
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="to-analyze/material-list/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigir Lista de materiais
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList" disabled>
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterialList" aria-expanded="false" aria-controls="collapseMaterialList">
                                     Lista de materiais
                                 </button>
                             </h2>
@@ -127,13 +187,13 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.material_list}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
-                                        <form action="to-analyze/documentation/{{details.id}}">
+                                        <form action="to-analyze/material-list/{{details.id}}">
                                             <div class="form-check">
                                                 <div class='report-task'>    
                                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -142,10 +202,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.material_list}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_material_list}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
@@ -174,15 +234,45 @@
                                 <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
                                     Preços
                                 </button>
-                            </h2>    
-                            
+                            </h2>
+                            <div id="collapsePrice" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionPrice">
+                                <div class="accordion-body">
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action="analyzed/price/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigido
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_price}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="to-analyze/price/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigir Preços
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_price}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% endif %}
+                                </div>   
+                            </div>
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrice" aria-expanded="false" aria-controls="collapsePrice">
                                     Preço
                                 </button>
                             </h2>
@@ -198,10 +288,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.price}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_price}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/price/{{details.id}}">
@@ -213,10 +303,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.price}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_price}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
@@ -228,32 +318,62 @@
             <div class='report-item'>
                 <div class="accordion accordion-flush" data-bs-theme='dark' id="accordionLayout">
                     <div class="accordion-item">
-                        {% if details.price == 'correct' %}
+                        {% if details.layout == 'correct' %}
                             <h2 class="accordion-header border-bottom border-success">
                                 <button class="accordion-button collapsed bg-success-subtle text-success-emphasis success-border-subtled-inline-flex focus-ring focus-ring-success text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                     Layout
                                 </button>
                             </h2>
-                        {% elif details.price == 'N/A' %}
+                        {% elif details.layout == 'N/A' %}
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                     Layout
                                 </button>
                             </h2>
-                        {% elif details.price == 'analyzing' %}
+                        {% elif details.layout == 'analyzing' %}
                             <h2 class="border-bottom border-warning">
                                 <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                     Layout
                                 </button>
-                            </h2>    
-                            
+                            </h2>
+                            <div id="collapseLayout" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionLayout">
+                                <div class="accordion-body">
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action="analyzed/layout/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigido
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_layout}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="to-analyze/layout/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigir Layout
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_layout}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% endif %}
+                                </div> 
+                            </div> 
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLayout" aria-expanded="false" aria-controls="collapseLayout">
                                     Layout
                                 </button>
                             </h2>
@@ -269,10 +389,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.layout}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_layout}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/layout/{{details.id}}">
@@ -284,10 +404,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.layout}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_layout}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
@@ -317,7 +437,7 @@
                                     Rede
                                 </button>
                             </h2>
-                            <div id="collapseNetwork" class="accordion-collapse collapse text-danger-emphasis" data-bs-parent="#accordionNetwork">
+                            <div id="collapseNetwork" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionNetwork">
                                 <div class="accordion-body">
                                     {% if user.job == 'Orçamentista chefe' %}
                                         <form action="analyzed/network/{{details.id}}">
@@ -329,10 +449,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.network}}</textarea>
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_network}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/network/{{details.id}}">
@@ -344,21 +464,17 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.network}}</textarea>
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_network}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
                             </div>    
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNetwork" aria-expanded="false" aria-controls="collapseNetwork">
                                     Rede
                                 </button>
                             </h2>
@@ -374,10 +490,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.network}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_network}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/network/{{details.id}}">
@@ -389,10 +505,10 @@
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
-                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.network}}</textarea>
+                                                    <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_network}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
@@ -421,15 +537,45 @@
                                 <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
                                     Proposta técnica
                                 </button>
-                            </h2>    
-                            
+                            </h2>
+                            <div id="collapseTecnicalOffer" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionTecnicalOffer">
+                                <div class="accordion-body">
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action="analyzed/tecnical-offer/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigido
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_tecnical_offer}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="to-analyze/tecnical-offer/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigir Proposta técnica
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_tecnical_offer}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% endif %}
+                                </div> 
+                            </div>
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTecnicalOffer" aria-expanded="false" aria-controls="collapseTecnicalOffer">
                                     Proposta técnica
                                 </button>
                             </h2>
@@ -448,7 +594,7 @@
                                                     <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.tecnical_offer}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/tecnical-offer/{{details.id}}">
@@ -463,7 +609,7 @@
                                                     <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.tecnical_offer}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
@@ -492,15 +638,45 @@
                                 <button class="accordion-button collapsed bg-warning-subtle text-warning-emphasis warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
                                     Proposta comercial
                                 </button>
-                            </h2>    
-                            
+                            </h2>
+                            <div id="collapseNetwork" class="accordion-collapse collapse text-warning-emphasis" data-bs-parent="#accordionNetwork">
+                                <div class="accordion-body">
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <form action="analyzed/commercial-offer/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigido
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% else %}
+                                        <form action="to-analyze/commercial-offer/{{details.id}}">
+                                            <div class="form-check">
+                                                <div class='report-task'>    
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        Corrigir Proposta comercial
+                                                    </label>
+                                                </div>
+                                                <div class="mb-3 report-task-description">
+                                                    <textarea class="form-control border border-warning warning-border-subtled-inline-flex focus-ring focus-ring-warning text-decoration-none" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
+                                        </form>
+                                    {% endif %}
+                                </div> 
+                            </div>
                         {% else %}
                             <h2 class="accordion-header border-bottom border-danger">
-                                {% if user.job == "Orçamentista chefe" %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
-                                {% else %}
-                                    <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
-                                {% endif %}
+                                <button class="accordion-button collapsed bg-danger-subtle text-danger-emphasis danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCommercialOffer" aria-expanded="false" aria-controls="collapseCommercialOffer">
                                     Proposta comercial
                                 </button>
                             </h2>
@@ -519,7 +695,7 @@
                                                     <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% else %}
                                         <form action="to-analyze/commercial-offer/{{details.id}}">
@@ -527,14 +703,14 @@
                                                 <div class='report-task'>    
                                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                                     <label class="form-check-label" for="flexCheckDefault">
-                                                        Corrigir Lista de materiais
+                                                        Corrigir Proposta comercial
                                                     </label>
                                                 </div>
                                                 <div class="mb-3 report-task-description">
                                                     <textarea class="form-control border border-danger danger-border-subtled-inline-flex focus-ring focus-ring-danger text-decoration-none" rows="3" readonly >{{details.reason_commercial_offer}}</textarea>
                                                 </div>
                                             </div>
-                                            <button type="submit" class='btn btn-success'></button>
+                                            <button type="submit" class='btn btn-success'>Salvar</button>
                                         </form>
                                     {% endif %}
                                 </div>
