@@ -10,12 +10,14 @@
             <h1 class="page-name">Relatórios de projeto</h1>
         </div>
         <div class="button">
-            <a href="{% url "new-register" %}">
-                <button type="button" class="btn btn-outline-primary multiuse-button">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Adicionar</span>
-                </button>
-            </a>
+            {% if user.job == 'Orçamentista chefe' %}
+                <a href="{% url "new-register" %}">
+                    <button type="button" class="btn btn-outline-primary multiuse-button">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Adicionar</span>
+                    </button>
+                </a>
+            {% endif %}
         </div>
     </div>
 {% endblock 'title-and-button' %}
@@ -44,16 +46,29 @@
                                             <button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </div>
-                                    <div class="col-md-auto">
-                                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}">
-                                            <i class="fa-solid fa-check"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}">
-                                            <i class="fa-solid fa-trash-can"></i>
-                                        </button>
-                                    </div>
+                                    {% if user.job == 'Orçamentista chefe' %}
+                                        <div class="col-md-auto">
+                                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}">
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    {% else %}
+                                        <div class="col-md-auto">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}" disabled>
+                                                <i class="fa-solid fa-check"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-auto">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}" disabled>
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </td>
                         </tr>
