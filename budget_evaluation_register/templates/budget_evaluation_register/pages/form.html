@@ -6,41 +6,11 @@
 
 {% block 'body-content' %}
 <div class='main-title'>
-    <h1>Form de registro</h1>
+    <h1>Correção do projeto {{ project.project_number }} - {{ project.project_name }}</h1>
 </div>
     <div class='container-form'>
-        <form action="{% url "add-report" %}" method='post'>
+        <form action="/add-report/{{ project.id}}" method='post'>
             {% csrf_token %}
-            <div class='employee'>
-                <div class="form-item">
-                    <label for="">Funcionario: </label>
-                    <select class="form-select" data-bs-theme="dark" name="employee" id="employee">
-                        <option value="" selected disabled hidden>Selecione um funcionario</option>
-                        <option value="Luiz Costa">Luiz Costa</option>
-                        <option value="Guilherme Gomes">Guilherme Gomes</option>
-                        <option value="Carlos Henrique">Carlos Henrique</option>
-                    </select>
-                </div>
-            </div>
-        
-            <div class='project'>
-                <div class="form-item">
-                    <label for="project_name" class="">Número do projeto: </label>
-                    <input type="input" class="form-control" data-bs-theme="dark" name="project_number" id='project_number' required />
-                </div>
-
-                <div class="form-item">
-                    <label for="project_name" class="">Nome do projeto: </label>
-                    <input type="input" class="form-control" data-bs-theme="dark" name="project_name" id='project_name' required />
-                </div>
-
-                <div class="form-item">
-                    <label for="client" class="">Responsável cliente: </label>
-                    <input type="input" class="form-control" data-bs-theme="dark" name="client" id='client' required />
-                </div>
-
-            </div>
-        
             <div class='topics'>
                 <div class='form-topic'>
                     <label for="">Documentação: </label>

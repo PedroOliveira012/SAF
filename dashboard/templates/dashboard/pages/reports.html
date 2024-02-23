@@ -7,17 +7,15 @@
 {% block 'title-and-button' %}
     <div class="title-and-button">
         <div class="title">
-            <h1 class="page-name">Relatórios de projeto</h1>
+            <h1 class="page-name">Projetos</h1>
         </div>
         <div class="button">
-            {% if user.job == 'Orçamentista chefe' %}
-                <a href="{% url "new-register" %}">
-                    <button type="button" class="btn btn-outline-primary multiuse-button">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>Adicionar</span>
-                    </button>
-                </a>
-            {% endif %}
+            <a>
+                <button type="button" class="btn btn-outline-success multiuse-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Adicionar projeto</span>
+                </button>
+            </a>
         </div>
     </div>
 {% endblock 'title-and-button' %}
@@ -26,9 +24,11 @@
         <table>
             <thead>
                 <th class="header-project-number">Numero do projeto</th>
+                <th class="header-revision-number">Revisão</th>
                 <th class="header-project-name">Nome do projeto</th>
-                <th class="header-client">Responsável</th>
+                <th class="header-client">Cliente</th>
                 <th class="header-responsable">Responsavel Zetta</th>
+                <th class="button-cell"></th>
                 <th class="button-cell"></th>
             </thead>
             <tbody>
@@ -36,6 +36,7 @@
                     {% if i.finished == 0 %}
                         <tr>
                             <td class="table-data">{{i.project_number}}</td>
+                            <td class="table-data">{{i.project_revision_history}}</td>
                             <td class="table-data">{{i.project_name}}</td>
                             <td class="table-data">{{i.client_name}}</td>
                             <td class="table-data">{{i.evaluated}}</td>
@@ -46,29 +47,29 @@
                                             <button class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></button>
                                         </a>
                                     </div>
-                                    {% if user.job == 'Orçamentista chefe' %}
+                                        {% if user.job == 'Orçamentista chefe' %}
                                         <div class="col-md-auto">
-                                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}">
-                                                <i class="fa-solid fa-check"></i>
-                                            </button>
-                                        </div>
-                                        <div class="col-md-auto">
-                                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
-                                        </div>
-                                    {% else %}
-                                        <div class="col-md-auto">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}" disabled>
-                                                <i class="fa-solid fa-check"></i>
-                                            </button>
-                                        </div>
-                                        <div class="col-md-auto">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}" disabled>
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
+                                            <a href="new-register/{{i.id}}">
+                                                <button type="button" class="btn btn-outline-success">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
+                                            </a>
                                         </div>
                                     {% endif %}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row mx-auto">
+                                    <div class="col-md-auto">
+                                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdropModalFinish-{{i.id}}">
+                                            <i class="fa-solid fa-check"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdropModalDelete-{{i.id}}">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -106,7 +107,7 @@
                                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
                                         <span>Cancelar</span>
                                     </button>
-                                    <a href="finish/{{i.id}}">
+                                    <a href="/finish/{{i.id}}">
                                         <button type="submit" class="btn btn-success">
                                             <span>Concluir</span>
                                         </button>
@@ -118,6 +119,43 @@
                 {% endfor %}
             </tbody>
         </table>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-theme="dark" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrar projeto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url "add-project" %}" method='post'>
+                        {% csrf_token %}
+                        <div class='project'>
+                            <div class="form-item">
+                                <label for="project_name" class="">Número do projeto: </label>
+                                <input type="input" class="form-control" data-bs-theme="dark" name="project_number" id='project_number' required />
+                            </div>
+            
+                            <div class="form-item">
+                                <label for="project_name" class="">Nome do projeto: </label>
+                                <input type="input" class="form-control" data-bs-theme="dark" name="project_name" id='project_name' required />
+                            </div>
+            
+                            <div class="form-item">
+                                <label for="client" class="">Cliente: </label>
+                                <input type="input" class="form-control" data-bs-theme="dark" name="client" id='client' required />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Finalizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     
 {% endblock 'body-content' %}
